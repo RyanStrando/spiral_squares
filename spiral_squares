@@ -1,0 +1,36 @@
+# SPIRAL_SQUARES
+# Not original code, found  somewhere on internet
+import turtle
+import random
+screen = turtle.Screen()
+turtle.speed(0)
+screen.setup(1000, 1000)
+turtle.ht()
+warm_colors = ("#FE4365", "#FC9D9A", "#F9CDAD", "#C8C8A9", "#83AF9B")
+colors = ("#FE4365", "#2A363B", "#F9CDAD", "#C8C8A9", "#83AF9B")
+
+
+def draw_square(x, y, size, tilt_angle, c):
+    turtle.up()
+    turtle.goto(x,y)
+    turtle.down()
+    turtle.seth(tilt_angle)
+    turtle.fillcolor(c)
+    turtle.begin_fill()
+    for i in range(4):
+        turtle.fd(size)
+        turtle.left(90)
+    turtle.end_fill()
+
+
+angle = 0
+size = 200
+
+
+while size > 0:
+    draw_square(0, 0, size, angle, (random.choice(colors)))
+    size -= 0.1
+    angle += 3
+
+
+screen.exitonclick()
